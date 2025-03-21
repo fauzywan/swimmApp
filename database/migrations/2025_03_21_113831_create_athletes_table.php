@@ -15,6 +15,14 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->char('nik', 16)->unique();
+            $table->string('photo');
+            $table->date('dob');
+            $table->string('phone');
+            $table->string('email')->unique();
+            $table->foreignId('nation_id')->constrained();
+            $table->foreignId('city_id')->constrained();
+            $table->foreignId('school_id')->constrained();
+            $table->string('address');
             $table->timestamps();
         });
     }

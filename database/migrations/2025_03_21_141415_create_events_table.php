@@ -11,14 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('cities', function (Blueprint $table) {
+        Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('logo');
-            $table->text("address");
-            $table->string('phone');
-            $table->string('email');
-            $table->string('website');
+            $table->string('description');
+            $table->string('distance');
+            $table->string('style');
+            $table->enum('gender', ['men', 'women', 'mixed']);
+            $table->string('pool_type');
+            $table->boolean('relay');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('cities');
+        Schema::dropIfExists('events');
     }
 };
